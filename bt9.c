@@ -6,12 +6,10 @@ int main() {
     const int MAX = 100;
     int mang[MAX];
     int so_phan_tu;
-    do {
         printf("nhap so phan tu: ", MAX);
         scanf("%d", &so_phan_tu);
         if (so_phan_tu < 1 || so_phan_tu > MAX)
             printf("vui long nhap lai so phan tu hop le!\n");
-    } while (so_phan_tu < 1 || so_phan_tu > MAX);
 
     for (int i = 0; i < so_phan_tu; i++) {
         printf("nhap phan tu mang[%d]: ", i);
@@ -36,8 +34,6 @@ int main() {
             vi_tri_phan_tu_nhieu_nhat = i;
         }
     }
-
-    // In k?t qu?
     printf("\nphan tu xuat hien nhieu nhat: %d", mang[vi_tri_phan_tu_nhieu_nhat]);
     printf("\nso lan xuat hien: %d\n", so_lan_xuat_hien_nhieu_nhat);
 
