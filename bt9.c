@@ -3,46 +3,43 @@
 #include <limits.h>
 
 int main() {
-    const int max = 100;
-    int arr[max];
-    int n;
-
+    const int MAX = 100;
+    int mang[MAX];
+    int so_phan_tu;
     do {
-        printf("nhap so phan tu: ");
-        scanf("%d", &n);
-        if (n < 1 || n > max) {
-            printf("Nhap lai n trong khoang 1 den %d!\n", max);
-        }
-    } while (n < 1 || n > max);
+        printf("nhap so phan tu: ", MAX);
+        scanf("%d", &so_phan_tu);
+        if (so_phan_tu < 1 || so_phan_tu > MAX)
+            printf("vui long nhap lai so phan tu hop le!\n");
+    } while (so_phan_tu < 1 || so_phan_tu > MAX);
 
-    for (int i = 0; i < n; i++) {
-        printf("nhap phan tu arr[%d]: ", i);
-        scanf("%d", &arr[i]);
+    for (int i = 0; i < so_phan_tu; i++) {
+        printf("nhap phan tu mang[%d]: ", i);
+        scanf("%d", &mang[i]);
     }
-
-    printf("\nMang vua nhap: ");
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
+    printf("\nmang vua nhap: ");
+    for (int i = 0; i < so_phan_tu; i++) {
+        printf("%d ", mang[i]);
     }
+    int so_lan_xuat_hien_nhieu_nhat = 0;
+    int vi_tri_phan_tu_nhieu_nhat = 0;
+    for (int i = 0; i < so_phan_tu; i++) {
+        int so_lan_xuat_hien_hien_tai = 0; 
 
-    int count_max_element = 0;
-    int position = 0;
-
-    for (int i = 0; i < n; i++) {
-        int count_at_i = 0;
-        for (int j = 0; j < n; j++) {
-            if (arr[j] == arr[i]) {
-                count_at_i++;
+        for (int j = 0; j < so_phan_tu; j++) {
+            if (mang[j] == mang[i]) {
+                so_lan_xuat_hien_hien_tai++;
             }
         }
-
-        if (count_at_i > count_max_element) {
-            count_max_element = count_at_i;
-            position = i;
+        if (so_lan_xuat_hien_hien_tai > so_lan_xuat_hien_nhieu_nhat) {
+            so_lan_xuat_hien_nhieu_nhat = so_lan_xuat_hien_hien_tai;
+            vi_tri_phan_tu_nhieu_nhat = i;
         }
     }
 
-    printf("\nPhan tu xuat hien nhieu nhat la: %d", arr[position]);
+    // In k?t qu?
+    printf("\nphan tu xuat hien nhieu nhat: %d", mang[vi_tri_phan_tu_nhieu_nhat]);
+    printf("\nso lan xuat hien: %d\n", so_lan_xuat_hien_nhieu_nhat);
 
     return 0;
 }
